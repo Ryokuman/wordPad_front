@@ -1,7 +1,9 @@
 {
   "name": "wordpad_front",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "author": "ryokuman",
+  "description": "word practicing web site wordPad's frontend",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
