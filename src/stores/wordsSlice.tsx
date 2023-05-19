@@ -1,7 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import _ from "lodash";
 
-type wordType = { id: string; word: string; meaning: string };
 const initialState: wordType[] = [];
 
 const wordsSlice = createSlice({
