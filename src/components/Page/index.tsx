@@ -3,18 +3,22 @@ import Container from "@components/Container";
 import { useNavigate } from "react-router-dom";
 import Typo from "@components/Typo";
 
-type BodyProps = {
-  margin?: string;
-};
-
 type PageProps = {
-  margin?: string;
+  top?: string;
+  left?: string;
 };
 
-const Body = styled(Container)<BodyProps>`
+const Body = styled(Container)<PageProps>`
   width: 900px;
   height: 1080px;
-  margin: ${(props) => props.margin};
+
+  top: ${(props) => props.top};
+  left: ${(props) => props.left};
+  margin-left: ${(props) => (props.left === "0" ? "auto" : "")};
+  right: ${(props) => (props.left === "0" ? "0" : "")};
+  margin-right: ${(props) => (props.left === "0" ? "auto" : "")};
+
+  position: absolute;
   background-color: #ffffff;
   border: #d9d9d9 4px solid;
 `;
@@ -52,12 +56,12 @@ const Link = styled(Container)`
   cursor: pointer;
 `;
 
-function Page({ margin }: PageProps) {
+function Page({ top, left }: PageProps) {
   const nav = useNavigate();
   const onLinkClick = () => nav("../", { relative: "route" });
 
   return (
-    <Body margin={margin || "10px auto"}>
+    <Body top={top} left={left || "0"}>
       <Link onClick={onLinkClick}>
         <Typo size="32px">HOME</Typo>
       </Link>
