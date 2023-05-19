@@ -6,7 +6,7 @@ type RootState = ReturnType<typeof store.getState>;
 type AppDispatch = typeof store.dispatch;
 
 const store = configureStore({
-  reducer: { modal: wordsSlice.reducer },
+  reducer: { word: wordsSlice.reducer },
 });
 
 const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
