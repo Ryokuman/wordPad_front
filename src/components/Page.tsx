@@ -46,7 +46,7 @@ const YLine = styled(Line)`
   height: 916px;
 
   background-color: #f3cbcb;
-  margin: 164px 0 0 -400px;
+  margin: 164px 0 0 -300px;
   position: absolute;
 `;
 

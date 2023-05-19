@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation, useParams } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { List, Test, Main } from "./pages";
 import { Page } from "./components";
