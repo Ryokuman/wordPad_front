@@ -1,5 +1,7 @@
+import Page from "@components/Page";
+
 function List() {
-  return <div>list</div>;
+  return <div></div>;
 }
 
 export default List;
