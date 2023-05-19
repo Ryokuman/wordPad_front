@@ -50,7 +50,6 @@ const Meaning = styled(Typo)`
 
 function Word({ word, index }: wordProps) {
   const dispatch = useAppDispatch();
-
   const onDelClick = () => dispatch(wordsSlice.actions.deleteWord(word));
 
   return (
