@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import Container from "@components/Container";
+import { useNavigate } from "react-router-dom";
+import Typo from "@components/Typo";
 
 type BodyProps = {
   margin?: string;
@@ -10,48 +12,58 @@ type PageProps = {
 };
 
 const Body = styled(Container)<BodyProps>`
-  width: 60vw;
-  height: 96vh;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  width: 900px;
+  height: 1080px;
   margin: ${(props) => props.margin};
-
   background-color: #ffffff;
-  border: #d9d9d9 0.2vw solid;
+  border: #d9d9d9 4px solid;
 `;
 
 const Title = styled(Container)`
-  width: 56vw;
-  height: 10vh;
-  margin: 4vh auto;
+  width: 812px;
+  height: 134px;
+  margin: 30px auto;
   background-color: #d9d9d9;
 `;
 
 const Line = styled(Container)`
-  width: 56vw;
-  height: 0.2vh;
-  margin-top: 2vh;
+  width: 812px;
+  height: 4px;
+  margin-top: 30px;
   background-color: #f3cbcb;
 `;
 
 const YLine = styled(Line)`
-  width: 0.2vw;
-  height: 82vh;
+  width: 4px;
+  height: 916px;
 
   background-color: #f3cbcb;
-  margin: 14vh 0 0 -20vw;
+  margin: 164px 0 0 -400px;
   position: absolute;
 `;
 
+const Link = styled(Container)`
+  width: 120px;
+  height: 68px;
+  justify-content: center;
+  margin: 224px 0 0 -1028px;
+  background-color: #c8d06c;
+  position: absolute;
+  cursor: pointer;
+`;
+
 function Page({ margin }: PageProps) {
+  const nav = useNavigate();
+  const onLinkClick = () => nav("../", { relative: "route" });
+
   return (
     <Body margin={margin || "10px auto"}>
+      <Link onClick={onLinkClick}>
+        <Typo size="32px">HOME</Typo>
+      </Link>
       <Title />
       <YLine />
-      {Array.from({ length: 34 }, (_, i) => (
+      {Array.from({ length: 25 }, (_, i) => (
         <Line key={i} />
       ))}
     </Body>
