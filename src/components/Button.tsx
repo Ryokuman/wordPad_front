@@ -6,16 +6,20 @@ type ButtonProps = {
   onClick?: React.MouseEventHandler<HTMLDivElement>;
   value?: string;
   margin?: string;
+  width?: string;
+  height?: string;
+  fontSize?: string;
+  border?: string;
   scale?: number;
 };
 
 const Body = styled(Container)<ButtonProps>`
-  width: 460px;
-  height: 100px;
+  width: ${(props) => props.width || "460px"};
+  height: ${(props) => props.height || "100px"};
   margin: ${(props) => props.margin};
 
   border-radius: 15px;
-  border: #ff0000 6px solid;
+  border: ${(props) => props.border || "#ff0000 6px solid"};
   background-color: #ffffff;
   justify-content: center;
 
@@ -23,13 +27,12 @@ const Body = styled(Container)<ButtonProps>`
   cursor: ${(props) => (props.onClick ? "pointer" : "auto")};
 `;
 
-function Button({ onClick, value, margin, scale }: ButtonProps) {
-  const typoSize = (scale || 1) * 60;
+function Button({ onClick, value, margin, width, height, fontSize, border }: ButtonProps) {
   const typoValue = value?.toUpperCase();
 
   return (
-    <Body margin={margin} onClick={onClick} scale={scale}>
-      <Typo size={`${typoSize}px`}>{typoValue}</Typo>
+    <Body margin={margin} onClick={onClick} width={width} height={height} border={border}>
+      <Typo size={fontSize || "60px"}>{typoValue}</Typo>
     </Body>
   );
 }
