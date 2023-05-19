@@ -1,18 +1,36 @@
-import { Route, Routes } from "react-router-dom";
-import { List, Test, Main } from "./pages";
+import { Route, Routes, useLocation } from "react-router-dom";
 import styled from "styled-components";
+import { List, Test, Main } from "./pages";
+import { Page } from "./components";
+import { useEffect, useState } from "react";
 
 const Background = styled.div`
   width: 100vw;
   height: 100vh;
   overflow: hidden;
   position: absolute;
-  z-index: -1;
+  z-index: -10;
 `;
 
 function App() {
+  const loc = useLocation().pathname;
+  const [top, setTop] = useState("");
+  const [title, setTitle] = useState("");
+
+  useEffect(() => {
+    if (loc === "/") {
+      setTop("100px");
+      setTitle("wordpad");
+      return;
+    }
+    if (loc === "/test") setTop("-100px");
+    if (loc === "/list") setTop("-100px");
+    setTitle("");
+  }, [loc]);
+
   return (
     <Background>
+      <Page top={top} title={title} />
       <Routes>
         <Route index element={<Main />} />
         <Route path="test" element={<Test />} />

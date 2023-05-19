@@ -22,6 +22,8 @@ const Body = styled(Container)<PageProps>`
   position: absolute;
   background-color: #ffffff;
   border: #d9d9d9 4px solid;
+
+  z-index: -1;
 `;
 
 const Title = styled(Container)`
@@ -44,7 +46,7 @@ const YLine = styled(Line)`
   height: 916px;
 
   background-color: #f3cbcb;
-  margin: 164px 0 0 -400px;
+  margin: 164px 0 0 -300px;
   position: absolute;
 `;
 
