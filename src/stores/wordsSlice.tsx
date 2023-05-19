@@ -1,11 +1,22 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import _ from "lodash";
+
+type wordType = { id: string; word: string; meaning: string };
+const initialState: wordType[] = [];
 
 const wordsSlice = createSlice({
   name: "words",
-  initialState: { accessToken: "" },
+  initialState: initialState,
   reducers: {
-    getToken: () => {},
-    setToken: () => {},
+    addWord: (state, action: PayloadAction<wordType>) => {
+      state.push(action.payload);
+    },
+    deleteWord: (state, action: PayloadAction<wordType>) => {
+      _.pull(state, action.payload);
+    },
+    clear: (state) => {
+      state = [];
+    },
   },
 });
 
