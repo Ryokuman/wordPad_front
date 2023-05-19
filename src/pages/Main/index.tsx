@@ -1,4 +1,5 @@
 import Button from "@components/Button";
+import PageBody from "@components/PageBody";
 import { useNavigate } from "react-router-dom";
 
 function Main() {
@@ -7,10 +8,10 @@ function Main() {
   const onListClick = () => nav("list");
 
   return (
-    <div>
-      <Button value="start test" margin="380px auto 0 auto" onClick={onTestClick} />
-      <Button value="word list" margin="50px auto 0 auto" onClick={onListClick} />
-    </div>
+    <PageBody margin="380px auto">
+      <Button value="start test" onClick={onTestClick} />
+      <Button value="word list" margin="50px 0" onClick={onListClick} />
+    </PageBody>
   );
 }
 
