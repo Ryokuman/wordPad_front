@@ -11,7 +11,7 @@ const wordsSlice = createSlice({
       state.push(action.payload);
     },
     deleteWord: (state, action: PayloadAction<wordType>) => {
-      _.pull(state, action.payload);
+      _.pullAllBy(state, [action.payload], "id");
     },
     clear: (state) => {
       state = [];
