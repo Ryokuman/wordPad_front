@@ -1,1 +1,1 @@
-type wordType = { id: string; word: string; meaning: string };
+type wordType = { id: string; name: string; meaning: string };
