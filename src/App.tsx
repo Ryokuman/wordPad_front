@@ -9,7 +9,7 @@ const Background = styled.div`
   height: 100vh;
   overflow: hidden;
   position: absolute;
-  z-index: -1;
+  z-index: -10;
 `;
 
 function App() {

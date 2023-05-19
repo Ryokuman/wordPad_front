@@ -22,6 +22,8 @@ const Body = styled(Container)<PageProps>`
   position: absolute;
   background-color: #ffffff;
   border: #d9d9d9 4px solid;
+
+  z-index: -1;
 `;
 
 const Title = styled(Container)`
