@@ -6,6 +6,7 @@ import Typo from "@components/Typo";
 type PageProps = {
   top?: string;
   left?: string;
+  title?: string;
 };
 
 const Body = styled(Container)<PageProps>`
@@ -27,6 +28,7 @@ const Title = styled(Container)`
   width: 812px;
   height: 134px;
   margin: 30px auto;
+  justify-content: center;
   background-color: #d9d9d9;
 `;
 
@@ -56,16 +58,19 @@ const Link = styled(Container)`
   cursor: pointer;
 `;
 
-function Page({ top, left }: PageProps) {
+function Page({ title, top, left }: PageProps) {
   const nav = useNavigate();
   const onLinkClick = () => nav("../", { relative: "route" });
+  const titleValue = title?.toUpperCase();
 
   return (
     <Body top={top} left={left || "0"}>
       <Link onClick={onLinkClick}>
         <Typo size="32px">HOME</Typo>
       </Link>
-      <Title />
+      <Title>
+        <Typo size="100px">{titleValue}</Typo>
+      </Title>
       <YLine />
       {Array.from({ length: 25 }, (_, i) => (
         <Line key={i} />
